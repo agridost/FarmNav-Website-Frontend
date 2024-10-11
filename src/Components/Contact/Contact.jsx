@@ -15,7 +15,7 @@ const Contact = () => {
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "03194ff3-f4af-4856-8783-5f9626ab5065");
+    formData.append("access_key", "2f2144d8-47e1-4086-8ed3-7df5f84c4b9a");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -38,9 +38,9 @@ const Contact = () => {
             <h3>Send us a message <img src={msg_icon} alt="" /></h3>
             <p>We're here to help! Whether you have questions, need support, or just want to learn more about our services, feel free to reach out to us. We're looking forward to connecting with you.</p>
             <ul>
-                <li><img src={mail_icon} alt="" />FarmNav@info.in</li>
-                <li><img src={phone_icon} alt="" />+91 9876543210</li>
-                <li><img src={loc_icon} alt="" />Vijay nagara, 2nd stage, Mysuru, Karnataka</li>
+                <li><img src={mail_icon} alt="" />farmnav2024@gmail.com</li>
+                <li><img src={phone_icon} alt="" />+91 9353107300</li>
+                <li><img src={loc_icon} alt="" />#479, 10th Cross, 1st Phase, Vijayanagar 4th Stage, Mysuru, Karnataka</li>
             </ul>
         </div>
         <div className="contact-col">
@@ -53,7 +53,7 @@ const Contact = () => {
                 <input type="email" name='email' placeholder='Enter your Email' />
                 <label>Write your message here</label>
                 <textarea name="message" id="" rows='6' placeholder='Type your message' required></textarea>
-                <button type='submit' className='hbtn'>Submit Now</button>
+                <button type='submit' className='sbtn'>Submit Now</button>
             </form>
             <span>{result}</span>
         </div>
