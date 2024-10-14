@@ -1,4 +1,4 @@
-import React from 'react'
+{/*import React from 'react'
 import './About.css'
 import About1 from '../../Assets/about1.jpg'
 import About2 from '../../Assets/about2.jpg'
@@ -19,4 +19,4 @@ const About = () => {
   )
 }
 
-export default About
+export default About*/}
