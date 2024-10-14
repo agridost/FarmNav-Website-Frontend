@@ -38,7 +38,7 @@ const Contact = () => {
             <h3>Send us a message <img src={msg_icon} alt="" /></h3>
             <p>We're here to help! Whether you have questions, need support, or just want to learn more about our services, feel free to reach out to us. We're looking forward to connecting with you.</p>
             <ul>
-                <li><img src={mail_icon} alt="" />farmnav2024@gmail.com</li>
+                <li><img src={mail_icon} alt="" />contact@farmnav.in</li>
                 <li><img src={phone_icon} alt="" />+91 9353107300</li>
                 <li><img src={loc_icon} alt="" />#479, 10th Cross, 1st Phase, Vijayanagar 4th Stage, Mysuru, Karnataka</li>
             </ul>

@@ -1,4 +1,4 @@
-import React from 'react'
+{/*import React from 'react'
 import './Goals.css'
 
 const Goals = () => {
@@ -23,4 +23,4 @@ const Goals = () => {
 )
 }
 
-export default Goals
+export default Goals*/}
