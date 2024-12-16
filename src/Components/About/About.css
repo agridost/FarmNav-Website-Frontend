@@ -1,27 +1,196 @@
-.about{
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2, h3, h4 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #555;
+    line-height: 1.8;
+}
+
+.highlight {
+    color: #007BFF;
+    font-weight: bold;
+}
+
+/* About Section */
+.about-section {
     margin: 100px auto;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     width: 90%;
+    flex-wrap: wrap;
 }
-.about-left{
-    flex-basis: 40%;
+
+.about-left-section {
+    flex-basis: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
-.about-right{
-    flex-basis: 56%;
+
+.about-right-section {
+    flex-basis: 50%;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    line-height: 1.8;
 }
-.about1{
+
+/* About2 Section */
+.about2-section {
+    margin: 100px auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 90%;
+    flex-wrap: wrap;
+}
+
+.about2-left-section {
+    flex-basis: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about2-right-section {
+    flex-basis: 50%;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.heading-title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.sub-heading {
+    font-size: 1.4em;
+    margin-top: 20px;
+    color: #007BFF;
+}
+
+.paragraph-section {
+    margin-bottom: 20px;
+}
+
+.image-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.layout-image {
     width: 100%;
     border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.about h3{
-    font-weight: 600;
-    font-size: 35px;
-    color: #e1de36;
-    margin-bottom: 50px;
+
+.layout-image.large {
+    grid-column: span 2;
 }
-.about p{
-    margin-bottom: 15px;
-    font-size: large;
+
+/* About3 Section */
+.about3-section {
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column; /* Stacks content vertically */
+    align-items: center;
+    width: 90%;
+    gap: 20px; /* Adds spacing between items */
+}
+
+.about3-left-section,
+.about3-right-section {
+    width: 100%;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    text-align: center;
+}
+
+.about3-left-section img {
+    max-width: 100%; /* Responsive images */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about3-right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Animations and Active State */
+.active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.inactive {
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+/* Responsive Design */
+
+/* Medium Devices (Tablets) */
+@media (max-width: 768px) {
+    .about-section,
+    .about2-section,
+    .about3-section {
+        flex-direction: column; /* Stacks sections vertically on tablets */
+        align-items: center;
+    }
+
+    .about-left-section,
+    .about-right-section,
+    .about2-left-section,
+    .about2-right-section {
+        flex-basis: 100%; /* Full-width for tablet */
+    }
+}
+
+/* Small Devices (Mobile) */
+@media (max-width: 480px) {
+    .about3-section {
+        gap: 10px; /* Reduce spacing for mobile */
+    }
+
+    .about3-left-section img {
+        margin-bottom: 15px; /* Adjust spacing for mobile */
+    }
+
+    h2, h3, h4 {
+        font-size: 1.2em; /* Adjust headings for smaller screens */
+    }
+
+    p {
+        font-size: 0.9em; /* Reduce text size for mobile readability */
+    }
 }

@@ -1,67 +1,127 @@
-.goals{
-    margin: 80px auto;
-    width: 90%;
+.goals {
+    margin: 0px auto;
+    width: 100%;
+}
+
+.goals > div:first-child {
     display: flex;
+    justify-content: space-between; 
     align-items: center;
-    justify-content: space-between;
+    gap: 20px; 
 }
-.goals h2{
-    color: #1d4b0b ;
+
+.bttn:not(:last-child)::after {
+    content: '|';
+    color: #1d4b0b; 
+    margin-left: 200px; 
+    font-size: 1.5em;
+    position: relative;
 }
-.goals p{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 15vh;
-    opacity: 70%;
-    width: 90%;
+
+.bttn {
+    position: relative;
+    background: transparent;
+    color: #1d4b0b;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: bolder;
+    padding: 10px 30px;
+    transition: 0.5s;
 }
-.aim h2{
+
+.bttn:hover {
+    background: var(--clr); 
+    color: #d3d130; 
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 15px var(--clr), 0 0 30px var(--clr), 0 0 45px var(--clr); 
+    border: 1px solid var(--clr); 
+}
+
+.bttn:before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: transparent;
+}
+
+.bttn span {
+    position: relative;
+    z-index: 1;
+}
+
+.mission h2,
+.vision h2,
+.values h2 {
+    color: #d3d130;
     text-align: center;
     margin: 15px;
-    display: inline-flex;
-    align-items: center;
-    border-bottom: 2px solid black;
     border-width: 70%;
 }
-.vision h2{
-    text-align: center;
-    margin: 15px;
-    display: inline-flex;
-    align-items: center;
-    border-bottom: 2px solid black;
-    border-width: 70%;
-}
-.values h2{
-    text-align: center;
-    margin: 15px;
-    display: inline-flex;
-    align-items: center;
-    border-bottom: 2px solid black;
-    border-width: 70%;
-}
-.vision{
-    margin-left: 40px;
-}
-.values{
+
+.vision,
+.values,
+.mission {
     margin-left: 50px;
+    text-align: center;
+    font-size: 1.3em;
+    color: #1d4b0b;
 }
+
+.fade-enter {
+    opacity: 0;
+    transform: translateY(10px); /* Slight movement for effect */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transform: translateY(0); /* Final position */
+}
+
+.fade-exit {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* ---- Scroll Animation ---- */
+.goals > div {
+    opacity: 0;
+    transform: translateY(50px); /* Slightly move elements down initially */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+}
+
+.goals > div.active {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position */
+}
+
 /* ---- media query ---- */
-@media (max-width: 850px){
-    .goals{
+@media (max-width: 850px) {
+    .goals {
         flex-direction: column;
     }
-    .aim{
-        flex-basis: 100%;
-        margin: 20px;
+
+    .bttn {
+        font-size: 1.2em; /* Slightly increase font size for readability */
+        padding: 8px 16px; /* Adjust padding for smaller screens */
     }
-    .values
-    {
-        flex-basis: 100%;
-        margin: 20px;
+
+    .bttn:not(:last-child)::after {
+        margin-left: 5px; /* Adjust separator spacing */
+        font-size: 1.2em; /* Adjust separator size */
     }
-    .vision{
-        flex-basis: 100%;
-        margin: 20px;
+
+    .goals > div:first-child {
+        flex-direction: column; /* Stack anchor tags vertically */
+        align-items: center;
+        gap: 15px; /* Increase gap for better spacing */
     }
 }

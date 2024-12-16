@@ -1,26 +1,66 @@
-{/*import React from 'react'
-import './Goals.css'
+import React, { useState, useEffect } from 'react';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import './Goals.css';
+import Mission from './Mission';
+import Vision from './Vision';
+import Values from './Values';
 
 const Goals = () => {
+  const [active, setActive] = useState("values");
+
+  const renderComponent = () => {
+    if (active === "values") return <Values />;
+    if (active === "mission") return <Mission />;
+    if (active === "vision") return <Vision />;
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active'); // Add active class for animation on scroll down
+          } else {
+            entry.target.classList.remove('active'); // Remove active class when out of view (scroll up)
+          }
+        });
+      },
+      { threshold: 0.3 } // Trigger when 30% of the element is visible
+    );
+
+    const elements = document.querySelectorAll('.goals > div');
+    elements.forEach(element => {
+      observer.observe(element); // Observe each section for scroll animation
+    });
+
+    // Clean up observer on unmount
+    return () => {
+      elements.forEach(element => {
+        observer.unobserve(element);
+      });
+    };
+  }, []);
+
   return (
     <div className="goals">
-        <div className="aim">
-            <h2>FarmNav Aims</h2>
-            <br />
-            <p>FarmNav empowers farmers by leveraging a digital platform to eliminate intermediaries in the agricultural supply chain bypassing intermediaries and fostering more efficient transactions with food manufacturers and retailers. Our mission is to enhance efficiency, reduce waste, and create a more integrated and transparent food supply chain.</p>
-        </div>
-        <div className="vision">
-            <h2>FarmNav Mission</h2>
-            <br />
-            <p>FarmNav’s mission is to deliver exceptional service by supplying high-quality farm produce to retail businesses. We aim to provide the best prices directly from the farm while optimizing costs, maintaining quality and quantity, and ensuring timely delivery.</p>
-        </div>
-        <div className="values">
-            <h2>FarmNav Value</h2>
-            <br />
-            <p>At FarmNav, we prioritize delivering exceptional, customer-focused products and services with an unwavering commitment to satisfaction. Our goal is to empower farmers by offering innovative, efficient, and affordable solutions that contribute to a prosperous society and a sustainable future.</p>
-        </div>
+      <div>
+        <a className="bttn" onClick={() => setActive("values")}><span>Values</span></a>
+        <a className="bttn" onClick={() => setActive("mission")}><span>Mission</span></a>
+        <a className="bttn" onClick={() => setActive("vision")}><span>Vision</span></a>
+      </div>
+      <div>
+        <SwitchTransition>
+          <CSSTransition
+            key={active}
+            timeout={500} /* Duration matches the CSS transition */
+            classNames="fade"
+          >
+            {renderComponent()}
+          </CSSTransition>
+        </SwitchTransition>
+      </div>
     </div>
-)
-}
+  );
+};
 
-export default Goals*/}
+export default Goals;
