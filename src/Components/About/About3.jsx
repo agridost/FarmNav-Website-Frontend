@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './About.css';
-import About1 from '../../Assets/about1.jpg';
-import About2 from '../../Assets/about2.jpg';
+import About4 from '../../Assets/about4.jpg';
+import About5 from '../../Assets/about5.jpg';
 
 const About3 = () => {
   useEffect(() => {
@@ -27,8 +27,8 @@ const About3 = () => {
     <div className="about3-section">
       <div className="about3-left-section">
         <div className="image-layout">
-          <img src={About1} alt="About 1" className="layout-image" />
-          <img src={About2} alt="About 2" className="layout-image" />
+          <img src={About4} alt="About 1" className="layout-image" />
+          <img src={About5} alt="About 2" className="layout-image" />
         </div>
       </div>
       <div className="about3-right-section">
