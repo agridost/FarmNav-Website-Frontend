@@ -1,6 +1,5 @@
-nav{
+nav {
     width: 100%;
-    /* background: #fff; */
     color: #333;
     padding: 4px 0;
     position: fixed;
@@ -10,59 +9,75 @@ nav{
     align-items: center;
     justify-content: space-between;
     z-index: 10;
+    transition: background-color 0.3s ease;
 }
-.logo{
-    padding: 10sepx;
+
+.logo {
+    padding: 10px;
     width: 100px;
 }
-nav ul li{
+
+nav ul li {
     display: inline-block;
     list-style: none;
     margin: 5px 20px;
     font-size: 25px;
     font-weight: 600;
 }
-.dark-nav{
-    background: rgba(133,187,65,0.5);
+
+.dark-nav {
+    background: rgba(133, 187, 65, 0.5);
     transition: 0.5s;
 }
-.menu-icon{
+
+.menu-icon {
     display: none;
 }
+
 /* ---- media query ---- */
-@media (max-width: 1000px){
-    .logo{
+@media (max-width: 1000px) {
+    .logo {
         width: 140px;
     }
-    nav ul li{
+
+    nav ul li {
         margin: 10px 15px;
     }
 }
-@media (max-width: 840px){
-    nav{
-        padding: 15px 0;;
+
+@media (max-width: 840px) {
+    nav {
+        padding: 15px 0;
     }
-    nav ul{
+
+    nav ul {
         position: fixed;
         top: 0;
-        right: 0px;
-        background: rgba(133,187,65,0.3);
-        z-index: -1;
+        right: -200px; /* Menu hidden by default */
+        background: rgba(133, 187, 65, 0.3);
+        z-index: 9;
         width: 200px;
         padding-top: 70px;
         transition: 0.5s;
         bottom: 0;
     }
-    nav ul li{
+
+    nav ul li {
         display: block;
         margin: 25px 40px;
     }
-    .menu-icon{
+
+    .menu-icon {
         display: block;
         width: 40px;
         cursor: pointer;
     }
-    .hide-mobile-menu{
-        right: -200px;
+
+    .show-mobile-menu {
+        right: 0; /* Show menu when toggled */
+    }
+
+    .hide-mobile-menu {
+        right: -200px; /* Hide menu by default */
     }
 }

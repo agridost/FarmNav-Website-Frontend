@@ -1,14 +1,34 @@
-.title{
+.title {
     text-align: center;
     color: #1d4b0b;
     font-size: 25px;
     font-weight: 600;
     text-transform: uppercase;
     margin: 70px 0 30px;
+    opacity: 0;
+    transform: translateY(50px); /* Initially position it lower */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
 }
-.title h3{
+
+.title.active {
+    opacity: 1;
+    transform: translateY(0); /* Final position */
+}
+
+.title h3 {
     font-size: 42px;
     color: #d3d130;
     margin-top: 5px;
     text-transform: none;
+}
+
+/* ---- media query ---- */
+@media (max-width: 850px) {
+    .title {
+        font-size: 22px; /* Slightly reduce font size for smaller screens */
+    }
+
+    .title h3 {
+        font-size: 36px; /* Slightly reduce h3 font size for readability */
+    }
 }
