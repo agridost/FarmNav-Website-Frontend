@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import './Programs.css';
-import prgm1 from '../../Assets/2.jpg';
-import prgm2 from '../../Assets/3.jpg';
-import prgm3 from '../../Assets/4.jpg';
+// import prgm1 from '../../Assets/2.jpg';
+// import prgm2 from '../../Assets/3.jpg';
+// import prgm3 from '../../Assets/4.jpg';
 
 const Programs = () => {
     useEffect(() => {
