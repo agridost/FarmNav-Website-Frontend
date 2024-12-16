@@ -27,7 +27,7 @@ const Navbar = () => {
                 <img src={FARMlogo} alt="FARM Logo" className="logo" />
             </Link>
 
-            <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>
+            <ul className={mobileMenu ? 'show-mobile-menu' : 'hide-mobile-menu'}>
                 <li>
                     <ScrollLink to="hero" smooth={true} offset={0} duration={500}>Home</ScrollLink>
                 </li>
@@ -42,7 +42,7 @@ const Navbar = () => {
                 </li>
             </ul>
 
-            <img src={menu_icon} className="menu-icon" onClick={toggleMenu} alt="Menu Icon" />
+            <img src={menu_icon} className='menu-icon' onClick={toggleMenu} alt='Menu Icon' />
         </nav>
     );
 };

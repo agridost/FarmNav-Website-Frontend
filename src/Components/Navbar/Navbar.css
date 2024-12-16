@@ -32,6 +32,8 @@ nav ul li {
 
 .menu-icon {
     display: none;
+    z-index: 15;  /* Ensure it's on top of the navbar */
+    position: relative;  /* Apply z-index */
 }
 
 /* ---- media query ---- */
@@ -58,7 +60,7 @@ nav ul li {
         z-index: 9;
         width: 200px;
         padding-top: 70px;
-        transition: 0.5s;
+        transition: right 0.5s ease; /* Add transition for smooth opening/closing */
         bottom: 0;
     }
 
