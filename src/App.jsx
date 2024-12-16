@@ -28,7 +28,7 @@ const App = () => {
                 <Hero />
                 <div className="container">
                   {/* <Title title="What We Offer" />
-                  <Programs /> */}
+                  <Programs />  */}
                   <Title />
                   <Goals />
                   <Title title="Who We Are" />
