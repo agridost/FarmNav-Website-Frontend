@@ -1,0 +1,292 @@
+/* Modern Glass Morphism Design - Final Version */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary: #00c853;
+  --primary-dark: #009624;
+  --text: #2d3436;
+  --glass: rgba(255, 255, 255, 0.25);
+  --navbar-height: 60px; /* Added navbar height variable */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.wholeBody {
+    position: relative; /* Changed from fixed to relative */
+    min-height: 100vh;
+    background: linear-gradient(45deg, #f5f7fa, #e4f5e8);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--navbar-height); /* Account for navbar */
+    padding-bottom: var(--footer-height); /* Account for footer */
+    box-sizing: border-box;
+}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeIn 0.6s forwards, float 6s ease-in-out infinite;
+  box-shadow: 0 8px 32px rgba(0, 200, 83, 0.2);
+}
+
+@keyframes fadeIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.form-box {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 40px;
+  margin: 2px;
+}
+
+h4 {
+  font-size: 28px;
+  color: var(--text);
+  margin-bottom: 32px;
+  text-align: center;
+  font-weight: 600;
+  position: relative;
+}
+
+h4::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 16px 20px 16px 48px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.input-box input:focus {
+  background: white;
+  box-shadow: 0 5px 15px rgba(0, 200, 83, 0.2);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.input-box .icons {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+  font-size: 18px;
+  transition: all 0.3s;
+}
+
+.input-box input:focus + .icons {
+  color: var(--primary-dark);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Remember Me - Forgot Password Section */
+.remeber-forget {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -10px 0 20px;
+  gap: 15px;
+}
+
+.remeber-forget label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #636e72;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.remeber-forget input[type="checkbox"] {
+  accent-color: var(--primary);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.remeber-forget a {
+  color: var(--primary);
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.remeber-forget a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.form-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.4s;
+  box-shadow: 0 4px 10px rgba(0, 200, 83, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 200, 83, 0.4);
+}
+
+.form-button:active {
+  transform: translateY(1px);
+}
+
+.form-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.form-button:hover::after {
+  transform: translateX(100%);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 24px;
+  color: #636e72;
+  font-size: 14px;
+}
+
+.register-link span {
+  color: var(--primary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.register-link span:hover {
+  color: var(--primary-dark);
+}
+
+.register-link span::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--primary-dark);
+  transition: width 0.3s;
+}
+
+.register-link span:hover::after {
+  width: 100%;
+}
+
+/* Ripple Effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .form-box {
+    padding: 30px 20px;
+  }
+  
+  h4 {
+    font-size: 24px;
+  }
+  
+  .input-box input {
+    padding: 14px 16px 14px 44px;
+  }
+  
+  .remeber-forget {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

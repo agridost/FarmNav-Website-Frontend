@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router components
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Hero from './Components/Hero/Hero';
 import Programs from './Components/Program/Programs';
@@ -10,13 +10,17 @@ import Goals from './Components/Goals/Goals';
 import About from './Components/About/About';
 import About2 from './Components/About/About2';
 import About3 from './Components/About/About3';
-import PrivacyPolicy from './Components/TermsPolicy/PrivacyPolicy'; // Import Privacy Policy component
+import PrivacyPolicy from './Components/TermsPolicy/PrivacyPolicy';
 import TermsConditions from './Components/TermsPolicy/TermsConditions';
 import Recognitions from './Components/Recognitions/Recognitions';
+import LoginRegister from './Components/LoginRegister/LoginRegister';
+import Signup from './Components/LoginRegister/Signup'; // <---- ADD THIS
+import LandingPage from './Components/Landingpage/LandingPage';
+import ShopRice from './Components/Shopping/ShopRice';
 
 const App = () => {
   return (
-    <Router> {/* Wrap the application in Router */}
+    <Router>
       <div>
         <Navbar />
         <Routes>
@@ -27,8 +31,6 @@ const App = () => {
               <>
                 <Hero />
                 <div className="container">
-                  {/* <Title title="What We Offer" />
-                  <Programs />  */}
                   <Title />
                   <Goals />
                   <Title title="Who We Are" />
@@ -38,14 +40,17 @@ const App = () => {
                   <Title title="Get in Touch" />
                   <Contact />
                   <Title title="Our RECOGNITIONS" />
-                  <Recognitions/>
+                  <Recognitions />
                 </div>
               </>
             }
           />
-          {/* Privacy Policy Route */}
           <Route path="/our-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsConditions />} />
+          <Route path="/loginSignUp" element={<LoginRegister />} />
+          <Route path="/signup" element={<Signup />} /> {/* <--- SIGNUP ROUTE */}
+          <Route path="/landing" element={<LandingPage/>}/>
+          <Route path="/shop/rice" element={<ShopRice/>}/>
         </Routes>
         <Footer />
       </div>

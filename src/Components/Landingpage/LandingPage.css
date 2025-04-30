@@ -1,0 +1,309 @@
+:root {
+    --primary: #00c853;
+    --primary-dark: #009624;
+    --text: #2d3436;
+    --glass: rgba(255, 255, 255, 0.25);
+    --category-bg: rgba(255, 255, 255, 0.85);
+    --navbar-height: 80px;
+    --footer-height: 60px;
+  }
+  
+  .landing-container {
+    min-height: 100vh;
+    padding: var(--navbar-height) 0 var(--footer-height);
+    background: linear-gradient(45deg, #f5f7fa, #e4f5e8);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .landing-header {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .landing-header h1 {
+    font-size: 3rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  .landing-header p {
+    font-size: 1.25rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Shop by Category Section */
+  .shop-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-dark);
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary);
+  }
+  
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.8rem;
+    margin-bottom: 4rem;
+  }
+  
+  .category-card {
+    background: var(--category-bg);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    padding: 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 200, 83, 0.15);
+  }
+  
+  .category-icon {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 1.2rem;
+  }
+  
+  .category-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  
+  .category-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.8rem;
+  }
+  
+  .category-items li {
+    padding: 8px 0;
+    color: #555;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+    font-size: 0.95rem;
+  }
+  
+  .category-items li:last-child {
+    border-bottom: none;
+  }
+  
+  .shop-button {
+    padding: 10px 25px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 80%;
+    max-width: 180px;
+  }
+  
+  .shop-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 200, 83, 0.3);
+  }
+  
+  /* Features Section */
+  .features-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  
+  .feature-card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2.2rem 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    box-shadow: 0 8px 32px rgba(0, 200, 83, 0.1);
+    text-align: center;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 200, 83, 0.2);
+  }
+  
+  .feature-icon {
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .feature-card p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  
+  .cta-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cta-button {
+    padding: 15px 40px;
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 200, 83, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 200, 83, 0.4);
+  }
+  
+  .cta-button:active {
+    transform: translateY(2px);
+  }
+  
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .categories-grid {
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .landing-header h1 {
+      font-size: 2.6rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .landing-header {
+      padding: 3rem 1.5rem 1.5rem;
+    }
+    
+    .landing-header h1 {
+      font-size: 2.2rem;
+    }
+    
+    .categories-grid,
+    .features-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .category-card,
+    .feature-card {
+      padding: 1.8rem 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .landing-header {
+      padding: 2.5rem 1rem 1rem;
+    }
+    
+    .landing-header h1 {
+      font-size: 2rem;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .cta-section {
+      padding: 3rem 1rem;
+    }
+    
+    .shop-button {
+      padding: 8px 20px;
+      font-size: 0.9rem;
+    }
+    
+    .cta-button {
+      padding: 12px 30px;
+      font-size: 1rem;
+    }
+  }

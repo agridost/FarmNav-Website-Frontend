@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import FARMlogo from '../../Assets/FARMlogo.png';
-import { Link } from 'react-router-dom';  // Import Link from react-router-dom
-import { Link as ScrollLink } from 'react-scroll';  // Import Link for smooth scrolling
+import { Link, useLocation } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import menu_icon from '../../Assets/menu-icon.png';
 
 const Navbar = () => {
     const [sticky, setSticky] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
             window.scrollY > 200 ? setSticky(true) : setSticky(false);
         });
-    }, []);
+
+        // Check if we're on the landing page (home) to determine login state
+        setIsLoggedIn(location.pathname === '/landing');
+        setIsLoggedIn(location.pathname === '/shop/rice')
+    }, [location.pathname]);
 
     const [mobileMenu, setMobileMenu] = useState(false);
 
@@ -20,9 +26,17 @@ const Navbar = () => {
         setMobileMenu(!mobileMenu);
     };
 
+    const handleAuthAction = () => {
+        if (isLoggedIn) {
+            // Handle logout logic
+            setIsLoggedIn(false);
+            // Redirect to login page or perform other logout actions
+            window.location.href = '/loginSignUp';
+        }
+    };
+
     return (
         <nav className={`container ${sticky ? 'dark-nav' : ''}`}>
-            {/* Wrap the logo in Link to navigate back to home */}
             <Link to="/" className="logo-container">
                 <img src={FARMlogo} alt="FARM Logo" className="logo" />
             </Link>
@@ -39,6 +53,15 @@ const Navbar = () => {
                 </li>
                 <li>
                     <ScrollLink to="contact" smooth={true} offset={-260} duration={500}>Contact</ScrollLink>
+                </li>
+                <li>
+                    {isLoggedIn ? (
+                        <button onClick={handleAuthAction} className="auth-button">
+                            Logout
+                        </button>
+                    ) : (
+                        <Link to="/loginSignUp" className="auth-link">Login/SignUp</Link>
+                    )}
                 </li>
             </ul>
 
