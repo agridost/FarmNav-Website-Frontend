@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './LoginRegister.css';
 import { FaUser, FaLock } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +6,19 @@ import { useNavigate } from 'react-router-dom';
 const LoginRegister = () => {
   const navigate = useNavigate();
   const buttons = useRef([]);
+  const [formData, setFormData] = useState({
+    usernameOrEmail: '',
+    password: ''
+  });
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const createRipple = (e, index) => {
     const button = buttons.current[index];
@@ -24,31 +37,70 @@ const LoginRegister = () => {
     button.appendChild(circle);
   };
 
-  // Dummy login function - no actual authentication
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Just navigate to home page without any auth check
-    navigate('/landing');
+    setError('');
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        credentials: 'include'
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+
+      // Redirect to landing page after successful login
+      navigate('/landing');
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className='wholeBody'>
       <div className='wrapper'>
         <div className='form-box login'>
-          <form>
+          <form onSubmit={handleLogin}>
             <h4>Welcome Back</h4>
             
+            {error && <div className="error-message">{error}</div>}
+            
             <div className='input-box'>
-              <input type="text" placeholder='Username or Email' required />
+              <input 
+                type="text" 
+                name="usernameOrEmail"
+                placeholder='Username or Email' 
+                value={formData.usernameOrEmail}
+                onChange={handleChange}
+                required 
+              />
               <FaUser className='icons' />
             </div>
             
             <div className='input-box'>
-              <input type="password" placeholder='Password' required />
+              <input 
+                type="password" 
+                name="password"
+                placeholder='Password' 
+                value={formData.password}
+                onChange={handleChange}
+                required 
+              />
               <FaLock className='icons' />
             </div>
 
-            <div className="remeber-forget">
+            <div className="remember-forget">
               <label>
                 <input type="checkbox" /> Remember Me
               </label>
@@ -61,12 +113,10 @@ const LoginRegister = () => {
               className='form-button' 
               type='submit'
               ref={el => buttons.current[0] = el}
-              onClick={(e) => {
-                createRipple(e, 0);
-                handleLogin(e);
-              }}
+              onClick={(e) => createRipple(e, 0)}
+              disabled={isLoading}
             >
-              LOGIN
+              {isLoading ? 'LOGGING IN...' : 'LOGIN'}
             </button>
             
             <div className="register-link">

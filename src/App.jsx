@@ -17,9 +17,15 @@ import LoginRegister from './Components/LoginRegister/LoginRegister';
 import Signup from './Components/LoginRegister/Signup'; // <---- ADD THIS
 import LandingPage from './Components/Landingpage/LandingPage';
 import ShopRice from './Components/Shopping/ShopRice';
+import CartPage from './Components/Cart/CartPage';
+import { CartProvider } from './Components/Cart/CartContext';
+import PaymentPage from './Components/PaymentPage/PaymentPage';
+import PaymentConfirmation from './Components/PaymentPage/PaymentConfirmation';
+import OrdersPage from './Components/Orders/OrdersPage';
 
 const App = () => {
   return (
+    <CartProvider>
     <Router>
       <div>
         <Navbar />
@@ -51,10 +57,15 @@ const App = () => {
           <Route path="/signup" element={<Signup />} /> {/* <--- SIGNUP ROUTE */}
           <Route path="/landing" element={<LandingPage/>}/>
           <Route path="/shop/rice" element={<ShopRice/>}/>
+          <Route path="/cart" element={<CartPage/>}/>
+          <Route path="/payment" element={<PaymentPage/>}/>
+          <Route path="/payment/confirm/:orderId" element={<PaymentConfirmation/>}/>
+          <Route path="/orders" element={<OrdersPage/>}/>
         </Routes>
         <Footer />
       </div>
     </Router>
+    </CartProvider>
   );
 };
 

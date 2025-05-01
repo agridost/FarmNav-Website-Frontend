@@ -1,0 +1,232 @@
+/* PaymentPage.css */
+.payment-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--navbar-height) 0 var(--footer-height);
+    margin-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.payment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #f0f0f0;
+}
+
+.payment-title {
+    margin-left: 20px;
+    font-size: 28px;
+    color: #2c3e50;
+}
+
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.payment-method-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.payment-method-card:hover {
+    border-color: #3498db;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-method-card.selected {
+    border-color: #3498db;
+    background-color: #f8fafc;
+    box-shadow: 0 0 0 1px #3498db;
+}
+
+.method-icon {
+    margin-right: 20px;
+    color: #7f8c8d;
+    transition: color 0.3s;
+}
+
+.payment-method-card.selected .method-icon {
+    color: #3498db;
+}
+
+.method-details {
+    flex: 1;
+}
+
+.method-details h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.method-details p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.upi-apps {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.upi-app-icon {
+    display: flex;
+    align-items: center;
+}
+
+.method-select input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #3498db;
+}
+
+.order-summary {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: white;
+}
+
+.order-summary h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #2c3e50;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    font-size: 16px;
+}
+
+.summary-row.total {
+    font-weight: bold;
+    font-size: 18px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+/* Add to your PaymentPage.css */
+.address-input-container {
+    margin: 20px 0;
+  }
+  
+  .address-textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+    min-height: 100px;
+    transition: border 0.3s ease;
+  }
+  
+  .address-textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+  }
+  
+  .address-textarea::placeholder {
+    color: #999;
+  }
+
+.place-order-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.place-order-btn:hover {
+    background-color: #2980b9;
+}
+
+.place-order-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .payment-method-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .method-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .method-select {
+        align-self: flex-end;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .payment-title {
+        margin-left: 0;
+        font-size: 24px;
+    }
+
+    .summary-row {
+        font-size: 14px;
+    }
+
+    .summary-row.total {
+        font-size: 16px;
+    }
+}
